@@ -30,24 +30,6 @@ namespace Haazelbot
 
         public async Task RunBotAsync()
         {
-            //Process process = new Process();
-            //string lavaLinkFileLocation = Environment.GetEnvironmentVariable("LavaLinkFileLocation");
-            //process.StartInfo = new ProcessStartInfo(@"java.exe", $"-jar {lavaLinkFileLocation}")
-            //{
-            //    UseShellExecute = false,
-            //    CreateNoWindow = true
-            //};
-
-            //try
-            //{
-            //    process.Start();
-            //}
-            //catch (System.ComponentModel.Win32Exception ex)
-            //{
-            //    Console.WriteLine(ex.Message);
-            //}
-            
-
             using (var context = new ApplicationDbContext())
             {
                 context.Database.EnsureCreated();
@@ -63,7 +45,6 @@ namespace Haazelbot
             {
                 LogLevel = LogSeverity.Info,
                 CaseSensitiveCommands = false,
-
             });
 
             _services = SetupServices();
