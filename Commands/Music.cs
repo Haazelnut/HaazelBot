@@ -73,22 +73,22 @@ namespace Haazelbot.Commands
 
         [Command("Stop")]
         public async Task Stop()
-            => await ReplyAsync(await _musicService.StopAsync());
+            => await ReplyAsync(await _musicService.StopAsync(Context.Guild));
 
         [Command("Skip")]
         public async Task Skip()
-        => await ReplyAsync(await _musicService.SkipAsync());
+        => await ReplyAsync(await _musicService.SkipAsync(Context.Guild));
 
         [Command("Volume")]
         public async Task Volume(ushort vol)
-        => await ReplyAsync(await _musicService.SetVolumeAsync(vol));
+        => await ReplyAsync(await _musicService.SetVolumeAsync(vol, Context.Guild));
 
         [Command("Pause")]
         public async Task Pause()
-        => await ReplyAsync(await _musicService.PauseAsync());
+        => await ReplyAsync(await _musicService.PauseAsync(Context.Guild));
 
         [Command("Resume")]
         public async Task Resume()
-            => await ReplyAsync(await _musicService.ResumeAsync());
+            => await ReplyAsync(await _musicService.ResumeAsync(Context.Guild));
     }
 }

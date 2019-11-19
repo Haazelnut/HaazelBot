@@ -74,8 +74,10 @@ namespace Haazelbot.Services
             }
         }
 
-        public async Task<string> StopAsync()
+        public async Task<string> StopAsync(IGuild guild)
         {
+            _player = _lavaNode.GetPlayer(guild);
+
             if (_player is null)
                 return "Player is not working";
 
@@ -83,8 +85,10 @@ namespace Haazelbot.Services
             return "**Stopped playing music**";
         }
 
-        public async Task<string> SkipAsync()
+        public async Task<string> SkipAsync(IGuild guild)
         {
+            _player = _lavaNode.GetPlayer(guild);
+
             if (_player is null)
                 return "**Player is not working**";
 
@@ -103,8 +107,10 @@ namespace Haazelbot.Services
             }
         }
 
-        public async Task<string> SetVolumeAsync(ushort vol)
+        public async Task<string> SetVolumeAsync(ushort vol, IGuild guild)
         {
+            _player = _lavaNode.GetPlayer(guild);
+
             if (_player is null)
                 return "**Player is not working**";
 
@@ -115,8 +121,10 @@ namespace Haazelbot.Services
             return $"**Volume set to {vol}**";
         }
 
-        public async Task<string> PauseAsync()
+        public async Task<string> PauseAsync(IGuild guild)
         {
+            _player = _lavaNode.GetPlayer(guild);
+
             if (_player is null)
                 return "**Player is not working**";
 
@@ -127,8 +135,10 @@ namespace Haazelbot.Services
             return "**Paused the music**";
         }
 
-        public async Task<string> ResumeAsync()
+        public async Task<string> ResumeAsync(IGuild guild)
         {
+            _player = _lavaNode.GetPlayer(guild);
+
             if (_player is null)
                 return "**Player is not working**";
 

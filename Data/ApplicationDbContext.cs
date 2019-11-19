@@ -17,12 +17,13 @@ namespace Haazelbot.Data
 
         }
 
+        private const string connString = "Server=(localdb)\\mssqllocaldb;Database=HaazelBot;Trusted_Connection=True;MultipleActiveResultSets=True";
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             base.OnConfiguring(optionsBuilder);
 
-
-            optionsBuilder.UseSqlServer("Server=(localdb)\\mssqllocaldb;Database=HaazelBot;Trusted_Connection=True;MultipleActiveResultSets=True");
+            optionsBuilder.UseSqlServer(connString);
         }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
